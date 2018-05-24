@@ -1,0 +1,25 @@
+{% extends 'Migrantes/base.html' %}
+
+{% block contenido %}
+<div class="crop">
+<h3 style="color: white;" align="center">NUESTROS CURSOS</h3>
+{% for curso in object_list  %}
+	<div class="crop2">
+		<h3 style="color: white;" align="justify">{{curso.titulo}}</h3>
+  		<img src="{{curso.imagen.url}}" height="100" width="100"/>
+		<p style="color: white;" align="justify">DESCRIPCIÓN:<br>{{curso.descripcion}}</p>
+	</div>
+{% endfor %}
+    {% if is_paginated %}
+        <div style="width: 100%;" class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a style="color: white;" href="/nuestos_cursos?page={{ page_obj.previous_page_number }}">ANTERIOR&nbsp;</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a style="color: white; font-style: italic;" href="/nuestos_cursos?page={{ page_obj.next_page_number }}">SIGUIENTE</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}

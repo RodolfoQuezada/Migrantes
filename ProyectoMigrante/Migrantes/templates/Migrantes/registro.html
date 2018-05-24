@@ -1,0 +1,21 @@
+{% extends 'Migrantes/base.html' %}
+<body class="conteiner">
+
+{% block contenido %}
+	<h1 align="center">FORMULARIO DE REGISTRO</h1>
+	<h5 align="center">NO DEJE CAMPOS EN BLANCO</h5> </div>
+	<div align="center">
+		<form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">{% csrf_token %}
+		<div class = "col-sm-6" style="padding-bottom: 25px;">
+			<h3>INTRODUCE TUS DATOS PERSONALES</h3>
+				<table id="tblRegistro" class="table table-bordered table-hover text-centered">
+					{{datospersonales.as_table}}
+				</table>
+					<button type="submit" class="btn btn-success btn-block">
+		    <span class="glyphicon glyphicon-ok"></span> REGISTRAR 
+		     </button>
+		</div>
+		</form>
+	</div>
+{% endblock %}
+</body>

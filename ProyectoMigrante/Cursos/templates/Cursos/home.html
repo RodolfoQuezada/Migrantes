@@ -1,0 +1,57 @@
+{% extends 'Cursos/base.html' %}
+
+{% block content %}
+
+{% ifequal user.perfilesdeusuario.terminos False %}
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+{% endifequal %}
+
+<div class="conteiner">
+<h3 >CURSOS DISPONIBLES</h1><br>
+  <div>
+  {% for course in courses %}
+    <img src="{{course.imagen.url}}" height="100" width="100"/>
+    <h3>CURSO: {{ course.titulo }}</h3>
+    <h5 align="justify" style="padding-right: 50%;">DESCRIPCIÓN: {{course.descripcion}}</a></h5>
+    <form action="{% url 'cursos:registro' %}" method="POST">
+      {% csrf_token %}
+      <button id="botonReg" type="submit">
+        ¡UNETE AHORA!
+      </span>
+    </button>
+    <input style="display: none;" type="text" name="cursoid" value="{{course.id}}">
+    <br><br>
+  </form>
+  {% endfor %}
+</div>
+
+
+<div id="myModal" class="modal fade in" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{carta.titulo}}</h4>
+      </div>
+      <div class="modal-body">
+        <p align="justify">{{carta.cuerpo}}</p>
+      </div>
+      <div class="modal-footer">
+        <form action="{% url 'cursos:aceptar' %}" method="POST">
+          {% csrf_token %}
+        <button type="submit" class="btn btn-success">!ENTENDIDO!</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'Cursos/base.html' %}
+
+
+{% block content %}
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">ANUNCIOS</a></li>
+  <li><a data-toggle="tab" href="#unidad">UNIDADES</a></li>
+  <li><a data-toggle="tab" href="#preguntas">PREGUNTAS FRECUENTES</a></li>
+</ul>
+
+<div style="padding-right: 10%;" class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3 align="center">ANUNCIOS QUE CREA EL PROFESOR</h3>
+    {% for anuncio in anuncios %}
+    <h3>{{anuncio.titulo}}</h3>
+    <p>{{anuncio.descripcion}}</p>
+    {% endfor %}
+  </div>
+  <div id="unidad" class="tab-pane fade">
+  {% for unidad in unidades %}
+   <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <p>UNIDAD {{unidad.numero_unidad}}</p>
+        <h4>{{unidad.nombre_unidad}}</h4>
+      </h4>
+    </div>
+      {% for tema in temas %}
+      {% ifequal tema.unidad unidad %}
+        <div class="panel-body">
+        <p>TEMA:</p>
+        <a href="{% url 'cursos:detalleTema' slug=tema.slug %}">{{tema.nombre_tema}}</a>
+      </div>
+      {% endifequal %}
+      {% endfor %}
+    </div>
+</div> 
+  {% endfor %}
+  </div>
+  <div id="preguntas" class="tab-pane fade">
+    <h3 align="center" >PREGUNTAS QUE SE PUBLICAN.</h3>
+    {% for pregunta in preguntas %}
+    <h4>{{pregunta.titulo}}</h4>
+    <p>{{pregunta.cuerpo}}</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<body>
+	<aside id = "btnHome">
+		<div class="btn-group">
+			<a href="{% url 'migrantes:iniciar' %}"><button type="button">INICIAR SESIÓN</button></a><br><br>
+			<a href="{% url 'migrantes:registrar' %}"><button type="button">¡REGISTRATE!</button></a><br><br>
+			<a href="{% url 'cursos' %}"><button type="button">NUESTROS CURSOS</button><br><br></a>
+		</div>
+	</aside>
+</body>
+{% endblock %}

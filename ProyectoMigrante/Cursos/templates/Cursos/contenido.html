@@ -1,0 +1,14 @@
+{% extends 'Cursos/base.html' %}
+{% load embed_video_tags %}
+
+{% block content %}
+<div style="position: absolute;">
+	<div class="conteiner" style="float: left;">
+		{% video video.video 'small' %}
+	</div>
+		<div class="conteiner" style="float: right;">
+			<h3 align="right" style="padding-right: 5%; padding-left: 50%;">LECTURA ADICIONAL:</h3>
+			<h5 align="justify" style="padding-right: 5%; padding-left: 50%;">{{video.texto}}</h5>
+		</div>
+</div>
+{% endblock %}
