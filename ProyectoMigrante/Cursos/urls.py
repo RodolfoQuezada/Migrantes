@@ -9,7 +9,7 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('aceptar/', views.aceptarTerminos, name='aceptar'),
     path('registro/', views.registrarUsuario ,name='registro'),
-	re_path('curso/(?P<slug>[\w-]+)/$', views.course_detail, name="detalle"),
-	re_path('(?P<slug>[-\w]+)/$', views.tema_detalle, name="detalleTema"),
+	re_path('curso/(?P<slug>[\w-]+)/$', views.course_detail, name='detalle'),
+	re_path('(?P<slug>[-\w]+)/$', views.tema_detalle, name='detalleTema'),
 
 ]

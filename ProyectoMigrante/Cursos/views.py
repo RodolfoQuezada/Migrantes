@@ -60,3 +60,8 @@ def aceptarTerminos(request):
     perfil.save()
 
     return redirect('cursos:homepage')
+
+def tipo_usuario(request):
+  usuario = request.user
+  tipo = PerfilesDeUsuario.objects.get(username=usuario)
+  return render(request,'Cursos/navbar.html',{'tipo':tipo})
