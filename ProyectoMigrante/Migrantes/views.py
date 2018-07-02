@@ -8,7 +8,7 @@ from django.http import HttpResponse
 def registro(request):
 	register = False
 
-	if request.method == "POST":
+	if request.method=="POST":
 		usuario = datospersonales(data=request.POST)
 		if usuario.is_valid():
 			usuario = usuario.save()
@@ -26,14 +26,14 @@ def registro(request):
 
 def inicio(request):
 	if request.method=='POST':
-		form = AuthenticationForm(data=request.POST)
+		form = CustomAuthForm(data=request.POST)
 		if form.is_valid():
 			usuario = form.get_user()
 			login(request,usuario)
 
 			return redirect('cursos:homepage')
 	else:
-		form = AuthenticationForm()
+		form = CustomAuthForm()
 	return render(request,'Migrantes/login.html',{'form':form})
 
 def salir(request):

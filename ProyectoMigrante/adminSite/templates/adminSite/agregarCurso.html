@@ -1,0 +1,36 @@
+{% extends 'adminSite/base.html' %}
+
+{% block contenido %}
+
+<h4>DATOS BASICOS DEL CURSO</h4>
+<form style="padding-bottom: 5%;" action="{% url 'admin:agregar' %}" method="POST">{% csrf_token %}
+{{AgregarCurso.titulo}}<br>
+{{AgregarCurso.slug}}<br>
+{{AgregarCurso.descripcion}}<br>
+<p>IMAGEN DEL CURSO</p>
+{{AgregarCurso.imagen}}<br>
+<h4>UNIDADES DEL CURSO</h4>
+{{AgregarUnidad.nombre_unidad}}<br>
+{{AgregarUnidad.numero_unidad}}<br>
+{{AgregarUnidad.descripcion}}<br>
+<button type="submit" class="btn btn-success">
+	<span class="glyphicon glyphicon-floppy-disk"> AGREGAR</span>
+</button>
+</form>
+
+<script type="text/javascript">
+	var tituloInput = document.querySelector('input[name=titulo]');
+	var slugInput = document.querySelector('input[name=slug]');
+
+	const slugify = (val) => {
+		return val.toString().toLowerCase().trim()
+		.replace(/&/g,'-and-')
+		.replace(/[\s\W-]+/g,'-')
+	};
+
+	tituloInput.addEventListener('keyup',(e)=>{
+		slugInput.setAttribute('value',slugify(tituloInput.value));
+	});
+
+</script>
+{% endblock %}
