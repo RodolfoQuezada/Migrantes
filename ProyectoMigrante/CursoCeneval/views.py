@@ -11,5 +11,3 @@ class NuestrosCursos(ListView):
 	model = Course
 	paginate_by = 3
 
-
-

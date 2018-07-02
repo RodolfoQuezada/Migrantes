@@ -3,6 +3,8 @@ from .models import *
 import datetime
 from django.utils import timezone
 from django.forms import ModelForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
 
 elementos_civil = (
 
@@ -124,3 +126,8 @@ class datospersonales(forms.ModelForm):
 		def __init__(self,*args,**kwargs):
 			super().__init__(*args,**kwargs)
 			self.fields['estado_origen'].queryset = Pais.objects.none()
+
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class':'form-control','placeholder': '*Introduce tu nombre de usuario'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'class': 'form-control', 'placeholder':'*Introduce tu contraseña'}))

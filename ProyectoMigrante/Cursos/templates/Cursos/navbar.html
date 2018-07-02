@@ -7,5 +7,8 @@
    <a href="{% url 'cursos:homepage' %}"><button id="nav" type="button">CURSOS DISPONIBLES</button></a>
    <a href="{% url 'cursos:profile' %}"><button id="nav" type="button">PERFIL</button></a>
    <a href="{% url 'cursos:courses' %}"><button id="nav" type="button">MIS CURSOS</button></a>
+   {% if user.perfilesdeusuario.tipo == "Administrador" %}
+   <a href="{% url 'admin:home' %}"><button id="nav" type="button">ADMINISTRAR</button></a>
+   {% endif %}
  </ul>
 </nav>

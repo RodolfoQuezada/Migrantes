@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'embed_video',
     'Migrantes',
-    'Cursos',
+    'adminSite',
+    'Cursos', 
 ]
 
 MIDDLEWARE = [

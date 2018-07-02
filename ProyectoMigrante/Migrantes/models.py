@@ -23,6 +23,12 @@ class PaisDeportado(models.Model):
     def __str__(self):
         return self.nombre
 
+class Tipo_Usuario(models.Model):
+    tipo = models.CharField(max_length=20,default='')
+
+    def __str__(self):
+        return self.tipo
+
 
 class PerfilesDeUsuario(User):
 
@@ -61,6 +67,9 @@ class PerfilesDeUsuario(User):
     asiste_agrupacion = models.CharField(max_length=40,default='')
     salir_origen = models.CharField(max_length=40,default='')
     interes_CESFOM = models.CharField(max_length=40,default='')
+
+    #categoria
+    tipo = models.CharField(max_length=40, default='Estudiante')
 
     def __str__(self):
         return '%s %s' % (self.referencia, self.nombre)
