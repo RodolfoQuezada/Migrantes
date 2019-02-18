@@ -1,0 +1,23 @@
+{% extends 'adminSite/base.html' %}
+
+{% block contenido %}
+
+<form action="{% url 'admin:guardar_usuario' %}" method="POST">
+	{% csrf_token %}
+
+		<input type="text" name="userId" value="{{usuario.id}}">
+
+		<input type="text" name="userData[]" value="{{usuario.nombre}}">
+
+		<input type="text" name="userData[]" value="{{usuario.apellido_Paterno}}">
+
+		<input type="text" name="userData[]" value="{{usuario.apellido_Materno}}">
+
+		<button id="botonReg" type="submit">
+		Actualizar Datos
+		</span>
+		</button>
+	<br><br>
+</form>
+
+{% endblock %}

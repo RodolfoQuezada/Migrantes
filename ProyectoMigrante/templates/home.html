@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<body>
+	<aside id = "btnHome">
+		<div class="btn-group">
+			<a href="{% url 'migrantes:iniciar' %}"><button type="button">Iniciar Sesión</button></a><br><br>
+			<a href="{% url 'migrantes:registrar' %}"><button type="button">¡Registrate!</button></a><br><br>
+			<a href="{% url 'cursos' %}"><button type="button">Nuestros Cursos</button><br><br></a>
+			<a href="https://www.facebook.com/CESFOM" target="_blank"><button type="button">Siguenos en Facebook</button><br><br></a>
+		</div>
+	</aside>
+</body>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1 style="padding-left: 10px;">INICIAR SESIÓN</h1>
+<form class="site-form" action="{% url 'migrantes:iniciar' %}" method="POST">
+	{% csrf_token %}
+	<h4>CORREO ELECTRONICO:</h4>
+	{{form.username}}
+	<h4>
+		CONTRASEÑA:
+	{{form.password}}
+	</h4>	
+<br><button class="btn btn-success" type="submit" value="INGRESAR"><span class="glyphicon glyphicon-ok"> INGRESAR</span></button>
+</form>
+{% endblock %}

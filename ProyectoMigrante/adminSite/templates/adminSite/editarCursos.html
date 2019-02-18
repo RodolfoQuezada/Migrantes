@@ -1,0 +1,17 @@
+{% extends 'adminSite/base.html' %}
+
+{% block contenido %}
+
+<h3>Cursos existentes</h3>
+
+<div class="jumbotron">
+{% for curso in cursos %}
+
+<a href="{% url 'admin:curso' id=curso.id %}">{{curso.titulo}}</a>
+
+<br><br>
+
+{% endfor %}
+</div>
+
+{% endblock %}

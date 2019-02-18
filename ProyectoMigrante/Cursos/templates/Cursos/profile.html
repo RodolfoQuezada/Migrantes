@@ -1,0 +1,21 @@
+{% extends 'Cursos/base.html' %}
+
+{% block content%}
+<div class="conteiner">
+<h2 align="center">PERFIL DE USUARIO</h2>
+<ul>
+    <h5 align="justify">
+      CORREO ELECTRONICO: {{user.username}} <br><br>
+      NOMBRE(S): {{user.perfilesdeusuario.nombre}} <br><br>
+      APELLIDO PATERNO: {{user.perfilesdeusuario.apellido_Paterno}} <br><br>
+      APELLIDO MATERNO: {{user.perfilesdeusuario.apellido_Materno}} <br><br>
+      FECHA DE NACIMIENTO: {{user.perfilesdeusuario.fecha_nacimiento}} <br><br>
+      PAIS DE ORIGEN: {{user.perfilesdeusuario.pais_origen}} <br><br>
+      ESTADO DE ORIGEN: {{user.perfilesdeusuario.estado_origen}} <br><br>
+      ESCOLARIDAD: {{user.perfilesdeusuario.escolaridad}} <br><br>
+      ESTADO CIVIL: {{user.perfilesdeusuario.estado_civil}} <br><br>
+      FECHA DE REGISTRO: {{user.perfilesdeusuario.fecha_registro}} <br><br>
+    </h5>
+</ul>
+</div>
+{% endblock %}

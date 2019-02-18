@@ -1,0 +1,17 @@
+{% extends 'adminSite/base.html' %}
+
+{% block contenido %}
+
+<h3>Perfiles de usuario</h3>
+
+<div class="jumbotron">
+{% for usuario in usuarios %}
+
+<a href="{% url 'admin:usuario' id=usuario.id %}">{{usuario.nombre}} {{usuario.apellido_Paterno}} {{usuario.apellido_Materno}}</a>
+
+<br><br>
+
+{% endfor %}
+</div>
+
+{% endblock %}

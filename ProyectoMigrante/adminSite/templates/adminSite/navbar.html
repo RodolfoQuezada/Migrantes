@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default">
+ <ul>
+ <form action="{% url 'migrantes:salir' %}" method="POST">
+ 	{% csrf_token %}
+  <button id="logout" type="submit">CERRAR SESIÓN</button>
+  <a href="{% url 'admin:agregar' %}"><button id="nav" type="button">AGREGAR CURSO</button></a>
+  <a href="{% url 'admin:cursos' %}"><button id="nav" type="button">EDITAR CURSO</button></a>
+  <a href="{% url 'admin:usuarios' %}"><button id="nav" type="button">EDITAR USUARIOS</button></a>
+  <a href=""><button id="nav" type="button">REPORTES</button></a>
+  <a href="{% url 'cursos:homepage' %}"><button id="nav" type="button">VOLVER AL SITIO</button></a>
+</form>
+ </ul>
+</nav>

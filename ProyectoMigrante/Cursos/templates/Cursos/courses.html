@@ -1,0 +1,11 @@
+{% extends 'Cursos/base.html' %}
+
+{% block content %}
+<div class="conteiner">
+<h3 align="center">MIS CURSOS</h1><br>
+{% for course in cursos %}
+<ul><a href="{% url 'cursos:detalle' slug=course.slug %}"><h3>{{course.titulo}}</h3></a></ul>
+{% endfor %}
+</div>
+{% endblock %}
+
