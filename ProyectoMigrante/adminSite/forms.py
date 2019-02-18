@@ -3,7 +3,7 @@ from Cursos.models import *
 import datetime
 from django.utils import timezone
 from django.forms import ModelForm
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 from django.forms.widgets import PasswordInput, TextInput
 
 class AgregarCurso(forms.ModelForm):

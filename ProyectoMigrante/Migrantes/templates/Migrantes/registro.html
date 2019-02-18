@@ -6,12 +6,12 @@
 	<h5 align="center">NO DEJE CAMPOS EN BLANCO</h5> </div>
 	<div align="center">
 		<form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">{% csrf_token %}
-		<div class = "col-sm-6" style="padding-bottom: 25px;">
+		<div style="padding-bottom: 10%; padding-left: 20%; padding-right: 20%;">
 			<h3>INTRODUCE TUS DATOS PERSONALES</h3>
-				<table id="tblRegistro" class="table table-bordered table-hover text-centered">
+				<table id="tblRegistro" class="table text-centered">
 					{{datospersonales.as_table}}
 				</table>
-					<button type="submit" class="btn btn-success btn-block">
+					<button type="submit" class="btn btn-success">
 		    <span class="glyphicon glyphicon-ok"></span> REGISTRAR 
 		     </button>
 		</div>
